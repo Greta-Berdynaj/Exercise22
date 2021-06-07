@@ -2,7 +2,8 @@ package trafficlight.observer;
 
 import java.util.ArrayList;
 
-public class Subject {
+//concrete Subject is State
+public abstract class Subject {
     private ArrayList<Observer> observerList = new ArrayList<Observer>();
 
     public void addObserver(Observer newObserver) {

@@ -19,7 +19,8 @@ public class TrafficLightCtrl {
 
     private boolean doRun = true;
 
-    public TrafficLightCtrl() {
+    //make constructor private, so that no more instances can be created
+    private TrafficLightCtrl() {
         super();
         initStates();
         gui = new TrafficLightGui(this);
@@ -30,10 +31,6 @@ public class TrafficLightCtrl {
 
     //implements controller as Singleton Pattern -> if there is no instance create one
     private static TrafficLightCtrl controller = null;
-
-    public State getCurrentState() {
-        return currentState;
-    }
 
     public static TrafficLightCtrl getController() {
         if (controller == null) {
@@ -139,4 +136,29 @@ public class TrafficLightCtrl {
     public void stop() {
         doRun = false;
     }
+
+
+    //getter for previous state
+    public State getPreviousState() {
+        return previousState;
+    }
+
+    //getter for current state
+    public State getCurrentState() {
+        return currentState;
+    }
+
+    public void setStates(State currentState, State previousState) {
+        //yellow lights -> before green of red
+        //green and red lights -> before yellow
+        if ((currentState == yellowState && (previousState == greenState || previousState == redState)) ||
+                (previousState == yellowState)&&(currentState == greenState || currentState == redState)) {
+            //currentState & previousState is yellow
+            this.currentState = currentState;
+            this.previousState = previousState;
+
+        }
+    }
+
+
 }
