@@ -31,6 +31,10 @@ public class TrafficLightCtrl {
     //implements controller as Singleton Pattern -> if there is no instance create one
     private static TrafficLightCtrl controller = null;
 
+    public State getCurrentState() {
+        return currentState;
+    }
+
     public static TrafficLightCtrl getController() {
         if (controller == null) {
             controller = new TrafficLightCtrl();
@@ -61,9 +65,8 @@ public class TrafficLightCtrl {
             public State getNextState() {
                 previousState = currentState;
                 //TODO useful to update the current state and the old one
-                yellowState.notifyObserver();
                 currentState.notifyObserver();
-
+                yellowState.notifyObserver();
 
                 return yellowState;
             }
