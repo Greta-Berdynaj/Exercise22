@@ -1,3 +1,6 @@
+https://github.com/Greta-Berdynaj/Exercise22.git
+
+
 # Traffic Light
 
 Das ist das Codetemplate für die zweite Übung in Programmierung 2.
@@ -20,9 +23,6 @@ Folgende Schritte sind zu durchzuführen
 ![Rot](/pics/redLight.png)
 
 Happy coding!
-
-
-https://github.com/Greta-Berdynaj/Exercise22.git
 
 
 
